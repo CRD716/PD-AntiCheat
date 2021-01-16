@@ -157,7 +157,7 @@ function reviveai(charc)
 	end)
 end
 
---Revive AI player after cheater left the game[
+--Revive AI player after cheater left the game
 function revive3(charc)
 DelayedCalls:Add( "teleport_all_ai", 1.5, function()
 			for id, data in pairs(managers.criminals._characters) do
@@ -192,7 +192,7 @@ function revive(name)
 	end)
 end	
 	
--- Function to handcuff the cheater
+--Function to handcuff the cheater
 function action(peer,interval)
 	DelayedCalls:Add("Cuffed_" .. tostring(peer:id()), interval, function()
 	if Utils:IsInHeist() and Network:is_server() == true and peer ~= nil and Global.game_settings.permission ~= "private" and PDA.settings.pda_pause == false then
@@ -226,7 +226,7 @@ function bleed_out(peer,interval)
 	end)
 end
 
---Function to tease the cheater, it also resets player to standard in every 5 sec to avoid getting down after tease.
+--Function to tase the cheater, it also resets player to standard in every 5 sec to avoid getting down after tease.
 function tased(peer,interval)
 	DelayedCalls:Add("custody_" .. tostring(peer:id()), interval, function()
 	if Utils:IsInHeist() and Network:is_server() == true and peer ~= nil and Global.game_settings.permission ~= "private" and PDA.settings.pda_pause == false then
@@ -272,7 +272,7 @@ end
 
 if RequiredScript == "lib/managers/hud/hudteammate" then
 
--- check cable tie count
+--check cable tie count
 	Hooks:PostHook(HUDTeammate,"set_cable_ties_amount","PDA_tie_check",function(self,amount)
 		if Utils:IsInHeist() and PDA.settings.pda_pause == false and (tonumber(amount)) > 9 and not _main_player and self ~= nil then 
 		detect(self,"tie")
@@ -377,7 +377,7 @@ function cheater(peer)
 	end
 end
 
--- Function to announce message
+--Function to announce message
 function announce(peer,rcode)
 log ("[PDA] Announcement started for player: "..(tostring(peer:name())))
 	if peer and PDA.settings.chat == 1 then
@@ -464,7 +464,7 @@ function modtest(peer)
 	end
 end
 
--- Function to test installed mods with flagged list
+--Function to test installed mods with flagged list
 function modtest2(peer)
 if PDA.settings.modtest == true and PDA.settings.pda_pause == false then
 log ("[PDA]  MOD test started for player: "..(tostring(peer:name())))
@@ -514,7 +514,7 @@ local file = io.open(PDA._savepath, "r")
 		menu_dump()
 	end
 end
--- Function to save setting
+--Function to save setting
 function menu_dump()
 	local file = io.open(PDA._savepath, "w+")
 	if file then
@@ -525,7 +525,7 @@ function menu_dump()
 	
 end
 
--- Check if player has van ban in last 3 month
+--Check if player has van ban in last 3 month
 function vactest(peer)
 if PDA.settings.vactest == true and PDA.settings.pda_pause == false then
 	log ("[PDA]  VAC test started for player: "..(tostring(peer:name())))
